@@ -4,37 +4,33 @@ import './App.css'
 function App() {
   const [counter, setCounter] = useState(10)
 
-  // let counter=17;
-
-  // const addValue=()=>{
-  //   setCounter(counter+1);
-  //   console.log(counter);
-  // }
-
-  //interview question create a counter 
-  const addValue=()=>{
-    setCounter((prevCounter)=> prevCounter+100);
-    setCounter((prevCounter)=> prevCounter+100);
-    setCounter((prevCounter)=> prevCounter+100);
-    setCounter((prevCounter)=> prevCounter+100);
-
-    console.log(counter);
+  function Add_Value() {
+    setCounter((prevCounter) => {
+      if (prevCounter >= 20) {
+        alert("Counter is greater than 20, you can't add");
+        return prevCounter; // Prevents increment if already 20+
+      }
+      return prevCounter + 1;
+    });
   }
-  const removeValue=()=>{
-    // setCounter(counter-1);
-    setCounter((prevCounter)=> prevCounter-100);
-    setCounter((prevCounter)=> prevCounter-100);
-    setCounter((prevCounter)=> prevCounter-100);
-    setCounter((prevCounter)=> prevCounter-100);
-    console.log(counter)
+
+  function Subtract_Value() {
+    setCounter((prevCounter) => {
+      if (prevCounter <= 0) {
+        alert("Counter is less than 0, you can't subtract");
+        return prevCounter; // Prevents decrement if already 0-
+      }
+      return prevCounter - 1;
+    });
   }
+
   return (
     <>
-      <h1>This is Manikanta from react {counter}</h1>
-      <h2>Counter value:{counter}</h2>
-      <button onClick={addValue}>Add value</button> {""}
-      <button onClick={removeValue}>Remove Value</button>
-      <h3>Footer:{counter}</h3>
+      <h1>Counter by Manikanta</h1>
+      <h2>Counter: {counter}</h2>
+      <button onClick={Add_Value}>Add Value</button> <br />
+      <button onClick={Subtract_Value}>Subtract Value</button>
+      <footer>Footer: {counter}</footer>
     </>
   )
 }
