@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import Card from './Components/Card'
 import './App.css'
 
 function App() {
@@ -7,7 +7,9 @@ function App() {
 
   return (
     <>
-      <h1 className='text-3xl bg-amber-100 text-black'>This is manikanta</h1>
+      {/* <h1 className='text-3xl bg-amber-100 text-black'>This is manikanta</h1> */}
+      <Card username="Manikanta" About="Click Me" />
+      <Card />
     </>
   )
 }
